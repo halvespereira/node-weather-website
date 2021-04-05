@@ -14,6 +14,9 @@ const express = require("express");
 //starts the server
 const app = express();
 
+//accessing the environment variable set by heroku
+const port = process.env.PORT || 3003;
+
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -112,6 +115,6 @@ app.get("*", (req, res) => {
 });
 
 //Necessary to run the server on the machine
-app.listen(3003, () => {
-  console.log("Server is up on port 3003");
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
